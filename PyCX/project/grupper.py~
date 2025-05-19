@@ -1,0 +1,83 @@
+
+
+
+
+
+"""
+n: initial population
+pc: probability of critical condition
+c: color - når man blir syk blir det en mørkere shade av farga
+"""
+
+"""
+OPS: bruker nå parametere for norge, men kan eks sammenligne med andre land.
+
+begrunnelse for parametere:
+n: <andel i gruppe>/<norges befolkning>
+pc: /<norges befolkning>
+"""
+# https://www.balloon.nu/stat/samlet/?utm_source=chatgpt.com
+no_befolkning = 55 # 5.5 millioner
+smittede_2022 = 10 # 1 million
+døde_2022 = 0.003 # 3500 døde i 2022 fordi korona
+
+#kilder for antall i risikogrupper: https://chatgpt.com/c/67e59771-c1e8-8008-9353-06b1118569dd
+"""
+må skjekke kildene: https://chatgpt.com/c/67e5d37b-0ad8-8008-8346-7f1aaaa198a4
+disse er for 2022
+over 80: 240.000
+65-79: 630.670
+kreft: 372.101
+diabetes: 300.000
+fedme: 1.000.000
+nyresvikt: 380.000
+funksjonsnedsettelse: 290.000
+psykisk lidelse: ???
+downs: 10.000
+demens: 100.000
+
+uten noe: 1.780.000
+...
+"""
+"""
+men hvor utsatt er de forskjellige gruppene??
+
+
+
+"""
+from config import get_config
+
+
+
+def get_risikogrupper():
+    config = get_config()
+
+    return { 
+        "alder_80":                 {"n": 3,  "pc": config["pc"], 'c': '#03288a'},
+        "alder65_79":               {"n": 6,  "pc": config["pc"], 'c': '#0c2e8a'},
+        "kreft":                    {"n": 4,  "pc": config["pc"], 'c': '#1b3989'},
+        "diabetes":                 {"n": 3,  "pc": config["pc"], 'c': '#132d75'},
+        "fedme":                    {"n": 10,  "pc": config["pc"], 'c': '#1e49c1'},
+        "nyresvikt":                {"n": 4,  "pc": config["pc"], 'c': '#3760d1'},
+        "funksjonsnedsettelse":     {"n": 3,  "pc": config["pc"], 'c': '#1a4ddc'},
+        "demens":                   {"n": 1,  "pc": config["pc"], 'c':'#0d41d3'},
+        "psykisk_lidelse":          {"n": 1,  "pc": config["pc"], 'c': '#022178'},
+        "downs":                    {"n": 1,  "pc": config["pc"], 'c': '#052a92'},
+        
+        "ingen_risiko":             {"n": 20,  "pc": config["pc_no"], 'c': '#021750'}
+    }
+
+
+def get_sum_n():
+    return sum(v["n"] for v in get_risikogrupper().values())
+
+
+
+
+"""
+shard map (nye) eller pmap
+- eller så kan kompilator gjøre automatisk
+
+
+
+"""

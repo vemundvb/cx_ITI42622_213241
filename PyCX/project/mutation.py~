@@ -1,0 +1,45 @@
+
+import uuid
+
+# ?? ok... at sykdommen har stor effekt. hvordan skal dette håndteres?
+# man har en sannsynlighet for å dø...
+# hva med at det heller er sannsynlighet for å komme i critical condition
+# eks med covid så kan for noen sykdommen veldig skade halsen og lungene.
+# man kan si man heller kommer i kritisk kondisjon, så har man en tid der man må behandles før man dør
+# så i tillegg til nye vaksiner per runde, er det også kun så mange som kan behandles på sykehus
+# de som har størst sannsynlighet for å komme i kritisk kondisjon, behandles først
+# parametere:
+# mengde folk som kan behandles på sykehus per runde
+# sannsynlighet for å komme i kritisk kondisjon hvis smittet
+# kan ta for nå mengde runder før man dauer? muligens etterhvert endre det til en sannsynlighet..
+
+
+
+def create_mutation():
+    return {        
+        "total_deaths": 0,
+        "total_critical": 0,
+        "total_vaccinated": 0,
+        "total_hospitelized": 0,
+        # "total_recovered": 0, ..ta antall som har hatt sykdommen (de er immun), uten at de er syk av den
+        # "total_suceptible": 0, ..bare ta antall som ikke er immun    
+        "total_symptometic": 0  # hva er det?
+        # total_asymptometic: ..bare ta antall som ikke er symptometic
+    }
+
+
+def create_uuid():
+    return str(uuid.uuid4())
+
+def add_mutation(current_mutations):
+    unid = create_uuid()
+    current_mutations[unid] = create_mutation()
+    return current_mutations, unid
+
+
+def init_mutations():
+    unid = create_uuid()
+    return {unid: create_mutation()}, unid
+
+
+

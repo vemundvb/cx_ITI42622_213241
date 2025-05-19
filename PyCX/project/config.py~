@@ -1,0 +1,70 @@
+
+
+def get_config():
+    return {
+        "dead_color": "#000000", # color of dead agents 
+        "c": 'ro', # color of sick agents
+
+        "ns": 12, # initial sick population, basert på 20% av befolkninga
+
+
+
+        # ===== parametere å optimalisere ====
+
+        "pc": 0.1, # likelyhood to become in critical condition, if risikogruppe
+        "pc_no": 0.01, # likelyhood to become critical condition, if no risikogruppe
+        
+        
+       
+        "sick_t_max": 30, # turns sickness lasts
+        "critical_t_max": 30, # mengde tid man er i kritisk kondisjon, før man dør
+
+        # parametere for tuning
+        "new_vaccines": 1, # nye vaksiner som kommer i sirkulasjon hver rund
+        "new_patients": 1, # mengde folk i kritisk kondisjon som kan behandles per rund 
+        "m": 0.03, # movment magnitude
+        "cd": 0.02, # radius for collision detection
+
+        "cdsq": 0.02 ** 2 # 0.02 er verdien i "cd"
+
+
+    }
+# evo algo:
+# Mutasjon:
+# i alle parameterene blir det tilfeldig lagt lagt til eller fjernet et spenn (mutasjon)
+
+# Avkom
+# noen av parameterene byttes tilfeldig mellom individiene,
+# man kan sette hvilke disse skal være.
+
+# Parameter for utvalg av foreldre
+# en simulasjon går for X mengde runder.
+# da brukes disse parameterene: død person (verdi 2), smittet person (verdi 1)
+# dødperson verdi og sykperson verdi legges sammen så til en fullstendig verdi.
+# individet med størst verdi, har mindre sannsynlighet for å bli valgt
+# for å lage barn
+
+# utvalget av foreldre blir gjort med en vanlig algoritme for dette, som brukes i
+# evolusjonære algoritmer. Der har parameteren innflytelse på utvalget.
+
+
+
+
+
+
+
+
+# mutation rate when smitting:
+# when deseas smitts others, it has a chance to mutate. 
+# if deseas mutates, new vaccines for it will have to be produced
+# and people that are immune to some previous version of it, are not immune this this deseas
+
+# hvordan håndtere turns sick og turns critical?
+# hvis man kommer i critical, så teller det ikke lengere fra turns sick, men fra turns critical
+        
+
+
+
+
+
+

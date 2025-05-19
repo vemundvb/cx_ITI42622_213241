@@ -1,0 +1,31 @@
+
+
+
+
+
+class agent:
+    def __init__(self, sick, x, y, gruppe):
+        # agent will become immune to a deseas if:
+        # it is smitten by the deseas
+        # it is vaccinated against it
+        self.x = x # int, posisjon
+        self.y = y # int, posision
+        self.gruppe = gruppe # risikogruppe
+        self.sick = sick
+        self.symptometic_t = 0 # turns been sick
+        self.critical_t = 0 #  turns critical
+        self.dead = False
+        self.immune = sick
+        self.critical = False
+
+
+
+
+
+
+
+
+
+
+
+

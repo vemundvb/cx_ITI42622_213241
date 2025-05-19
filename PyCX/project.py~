@@ -1,0 +1,30 @@
+
+import pycxsimulator
+from pylab import *
+
+
+
+n_init = 100
+
+
+class agent:
+    pass
+
+
+def initilize(n_init):
+    global agents
+    agents = []
+    for i in range( n_init ):
+        a = agent()
+        a.x = random()
+        a.y = random()
+
+        
+
+        
+
+
+
+
+
+
