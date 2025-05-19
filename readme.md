@@ -19,7 +19,7 @@ pip install -r requirements.txt
 
 Run the jupyter notebook:
 
-Go to the PyCx file, the same folder the jupyter notebook is in.
+Go to the PyCx folder, the same folder the jupyter notebook is in.
 
 Run:
 
@@ -27,11 +27,11 @@ jupyter-notebook
 
 
 
-In jupyter notebook open the notebook file.
+In the jupyter browser, open the notebook file.
 
-Run the main.py file.
+Run the main.py cell.
 
-If that dosen't work, then run the cells for various dependencies, then run the main.py file.
+If that dosen't work, then run the cells for various dependencies first, then run the main.py cell.
 
 
 
